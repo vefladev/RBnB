@@ -1,0 +1,24 @@
+{# templates/login/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# ... #}
+
+{% block body %}
+	{% if error %}
+		<div>{{ error.message }}</div>
+	{% endif %}
+
+	<form class="text-center mt-4" action="{{ path('app_login') }}" method="post">
+		<label for="username">Email:</label>
+		<input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+		<label class="ml-2" for="password">Mot de passe:</label>
+		<input
+		type="password" id="password" name="_password"/>
+
+		{# If you want to control the URL the user is redirected to on success #}
+		<input type="hidden" name="{{path('app_home')}}" value="/home"/>
+
+		<button class="btn btn-primary btn-sm ml-2" type="submit">Se connecter</button>
+	</form>
+{% endblock %}

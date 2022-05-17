@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page D'accueil !
+{% endblock %}
+
+{% block body %}
+	{# {% include "partial/navbar.html.twig" %} #}
+	<div class="example-wrapper">
+		<h1 class="text-right m-4 ml-2">Bienvenue
+			{{app.user}}</h1>
+	</div>
+{% endblock %}
