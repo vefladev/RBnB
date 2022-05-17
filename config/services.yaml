@@ -20,9 +20,9 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
     
-    App\EventListener\LoginVerifiedListener:
-        tags:
-            - { name: kernel.event_listener, event: security.authentication.success, method: OnAuthenticationSuccess }
+    # App\EventListener\LoginVerifiedListener:
+    #     tags:
+    #         - { name: kernel.event_listener, event: security.authentication.success, method: OnAuthenticationSuccess, priority: 9 }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
