@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.description) }}
+<h3>Lits</h3>
+
+
+<ul id="beds" data-template='{{ form_widget(form.roomLines.vars.prototype) }}<button type="button" class="btn btn-dark removeBed">Supprimer</button>' data-index="{{ form.roomLines|length > 0 ? form.roomLines|last.vars.name + 1 : 0 }}">
+
+
+	{% for roomLine in form.roomLines %}
+		<div>
+			{{ form_row(roomLine.quantity) }}
+			{{ form_row(roomLine.bed) }}
+			<button type="button" class="btn btn-dark removeBed">Supprimer</button>
+		</div>
+	{% endfor %}
+</ul>
+<button type="button" class="btn btn-dark addBed">Add a bed</button>
+<button class="btn btn-dark save">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+{% block custom_javascripts %}
+	{{ encore_entry_script_tags('bedForm') }}
+{% endblock %}

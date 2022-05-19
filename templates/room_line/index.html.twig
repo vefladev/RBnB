@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RoomLine index{% endblock %}
+
+{% block body %}
+    <h1>RoomLine index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for room_line in room_lines %}
+            <tr>
+                <td>{{ room_line.id }}</td>
+                <td>{{ room_line.quantity }}</td>
+                <td>
+                    <a href="{{ path('app_room_line_show', {'id': room_line.id}) }}">show</a>
+                    <a href="{{ path('app_room_line_edit', {'id': room_line.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_room_line_new') }}">Create new</a>
+{% endblock %}

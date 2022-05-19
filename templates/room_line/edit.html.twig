@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit RoomLine{% endblock %}
+
+{% block body %}
+    <h1>Edit RoomLine</h1>
+
+    {{ include('room_line/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_room_line_index') }}">back to list</a>
+
+    {{ include('room_line/_delete_form.html.twig') }}
+{% endblock %}

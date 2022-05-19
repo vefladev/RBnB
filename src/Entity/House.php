@@ -15,10 +15,10 @@ class House
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $adress;
 
-    #[ORM\Column(type: 'string', length: 150)]
+    #[ORM\Column(type: 'string', length: 150, nullable: true)]
     private $city;
 
     #[ORM\Column(type: 'string', length: 8)]
@@ -54,6 +54,9 @@ class House
 
     #[ORM\OneToMany(mappedBy: 'house', targetEntity: Room::class)]
     private $rooms;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $name;
 
     public function __construct()
     {
@@ -254,5 +257,22 @@ class House
         }
 
         return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

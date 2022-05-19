@@ -24,7 +24,7 @@ class Room
     #[ORM\ManyToOne(targetEntity: House::class, inversedBy: 'rooms')]
     private $house;
 
-    #[ORM\OneToMany(mappedBy: 'roomId', targetEntity: RoomLine::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'room', targetEntity: RoomLine::class, orphanRemoval: true, cascade: ["persist"])]
     private $roomLines;
 
     public function __construct()

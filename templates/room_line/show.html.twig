@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RoomLine{% endblock %}
+
+{% block body %}
+    <h1>RoomLine</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ room_line.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ room_line.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_room_line_index') }}">back to list</a>
+
+    <a href="{{ path('app_room_line_edit', {'id': room_line.id}) }}">edit</a>
+
+    {{ include('room_line/_delete_form.html.twig') }}
+{% endblock %}
